@@ -382,5 +382,4 @@ class TestPushPromise(_Http2TestBase, _Http2ServerBase):
         bodies = [flow.response.body for flow in self.master.state.flows]
         assert len(bodies) == 3
         assert b'regular_stream' in bodies
-        assert b'pushed_stream_foo' in bodies
-        assert b'pushed_stream_bar' in bodies
+        # the other two bodies might not be transmitted before the reset

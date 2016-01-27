@@ -407,6 +407,8 @@ class TestFlow(object):
     def test_getset_state(self):
         f = tutils.tflow(resp=True)
         state = f.get_state()
+        print(state)
+        print(HTTPFlow.from_state(state).get_state())
         assert f.get_state() == HTTPFlow.from_state(
             state).get_state()
 
